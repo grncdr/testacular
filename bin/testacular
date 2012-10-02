@@ -6,6 +6,8 @@ var config = cli.process();
 
 switch (config.cmd) {
   case 'start':
+    var cfg = require('../lib/config');
+    config = cfg.parseConfig(config.configFile, config);
     require('../lib/server').start(config);
     break;
   case 'run':
